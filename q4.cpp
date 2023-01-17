@@ -15,13 +15,13 @@ class Solution{
         vector<int> ct(1000000,0);
         for(int i =0; i< n; i++)
         {
-            ct[v2[i]]++;
+            ct[v2[i]]++;//here we are counting the same element and storing it in vector index by increament every time if we got same element.
         }
         
         for(int i =0; i<m; i++)
         {
-            int x = lower_bound(v2.begin(), v2.end(), v1[i]) - v2.begin();
-            v[i] = x+ct[v1[i]];
+            int x = lower_bound(v2.begin(), v2.end(), v1[i]) - v2.begin();//here we are searching that how many elemnets are less then but not grater than and equal to.
+            v[i] = x+ct[v1[i]];//since we also have to count the element which are equal to then we add number of element which are same as v[i];
         }
         
         return v;
